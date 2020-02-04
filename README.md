@@ -2,7 +2,7 @@
 
 `aws-cognito-authentication-s3` demonstrates the creation of an [AWS Cognito](https://aws.amazon.com/cognito/) User Pool, User Pool Client and Identity Pool.
 
-Additionally, the project creates an S3 Bucket with per AWS Cognito username prefixes with permissions per prefix restricted to individual AWS Cognito users.
+Additionally, the project creates an S3 Bucket with per AWS Cognito username prefixes and permissions per prefix restricted to individual AWS Cognito users.
 
 The project is based on the parent project [cognito-s3-cloudformation-example](https://github.com/franzwong/cognito-s3-cloudformation-example) as created by [Franz Wong](https://github.com/franzwong).
 
@@ -93,72 +93,4 @@ The `dist/index.html` file provides you with the ability to naviagate the Cognit
 4. Upload file to S3 (using the personal prefix restricted to the Cognito user)
 5. Refresh the file list in S3 (showing only the files in the personal prefix of the Cognito user)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# Cognito S3 Cloudformation example
-
-This example shows how to use S3 with cognito. It includes sign up, email verification, login, file upload, download and list S3 folder. Each cognito user can only access their own folder.
-
-The whole stack can be created by CloudFormation. The stack includes Cognito user pool, user pool client, identity pool, IAM role and S3 bucket.
-
-## Setup
-
-1. Create Stack
-
-```
-aws cloudformation create-stack \
-  --template-body file://stack.yaml \
-  --stack-name MyStack \
-  --capabilities CAPABILITY_NAMED_IAM \
-  --parameters \
-    ParameterKey=UserPoolName,ParameterValue=MyUserPool \
-    ParameterKey=IdentityPoolName,ParameterValue=MyIdentityPool \
-    ParameterKey=UserRoleName,ParameterValue=MyUserRole \
-    ParameterKey=UserPolicyName,ParameterValue=MyUserRolePolicy \
-    ParameterKey=AllowedOrigins,ParameterValue="*"
-```
-
-2. Create webpack configuration
-
-```
-cp webpack/sample.js webpack/dev.js
-export WEBPACK_CONFIG=./webpack/dev
-```
-
-3. Modify `webpack/dev.js` (You can get the values by `aws cloudformation describe-stacks --stack-name MyStack`)
-
-## Build
-
-```
-npm run build:dev
-```
-
-## Start
-
-Open `dist/index.html`
+![Test application screenshot](assets/test-app-screenshot.png)
