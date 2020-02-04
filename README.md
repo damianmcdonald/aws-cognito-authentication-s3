@@ -72,7 +72,7 @@ Create the resources and deploy the project by executing the [aws-deploy.sh](aws
 ./aws-deploy.sh
 ```
 
-The project is deployed using a [CloudFormation](https://aws.amazon.com/cloudformation/) template. You can following the progress of the project creation using the AWS CloudFormation console.
+The project is deployed using a [CloudFormation](https://aws.amazon.com/cloudformation/) template. You can follow the progress of the project creation using the AWS CloudFormation console.
 
 As part of the execution of the [aws-deploy.sh](aws-deploy.sh) script, two additional files are dynamically created.
 
